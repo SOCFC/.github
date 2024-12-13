@@ -96,6 +96,8 @@ source download_emulators.sh
 
 export PATH_TO_CLASS_SZ_DATA=$PWD/../class_sz_data_directory
 
+cd class-sz
+
 make clean 
 make -j 
 
