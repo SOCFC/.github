@@ -14,10 +14,12 @@ You should create an environment file that sets up the corretc environment varia
 In .bash_socfc:
 
 ```bash
-source /home/bb667/rds/bb667/cluster_counts/SOCFC/SOCFC_env/bin/activate
-export PATH_TO_CLASS_SZ_DATA=$GOTOSOCFC/class_sz/class_sz_data_directory
-export PYTHONPATH=$GOTOSOCFC/class_sz/class-sz/python/classy_szfast:$PYTHONPATH
+source /path/to/SOCFC/SOCFC_env/bin/activate
+cd $GOTOSOCFC
 ```
+
+where `$GOTOSOCFC` is the path to the SOCFC directory. 
+
 
 Then to start the SOCFC environment:
 
@@ -69,54 +71,27 @@ git clone https://github.com/SOCFC/nemo-sim-kit.git
 
 ## class_sz 
 
-Follow these instructions carefully. 
+Class_sz is pip installed from the requirements.txt
+
+Nevertheless, before you import class_sz in python, you need to set the PATH_TO_CLASS_SZ_DATA so that all the package data is downloaded and linked. 
+
+We store the data in our root directory `SOCFC`:
+
+In a terminal, run:
 
 ```bash
-git clone https://github.com/CLASS-SZ/class_sz
-git clone https://github.com/CLASS-SZ/get_cosmopower_emus.git
-
-cd get_cosmopower_emus
-pip install -e .
-cd ..
-
-git clone https://github.com/CLASS-SZ/class_sz_data.git
-cd class_sz_data
-pip install -e .
-cd ..
-
-cd class_sz/class-sz/python
-git clone https://github.com/CLASS-SZ/classy_szfast
-cd ..
-
-chmod +x select_makefile.sh
-./select_makefile.sh
-
-chmod +x download_emulators.sh
-source download_emulators.sh
-
-export PATH_TO_CLASS_SZ_DATA=$PWD/../class_sz_data_directory
-
-cd class-sz
-
-make clean 
-make -j 
-
-cd python/classy_szfast
-pip install -e .
-cd ../..
-
-export PYTHONPATH=$(pwd)/python/classy_szfast:$PYTHONPATH
+export PATH_TO_CLASS_SZ_DATA=/path/to/SOCFC
+mkdir -p $PATH_TO_CLASS_SZ_DATA/class_sz_data_directory
 ```
 
-You should then be able to run: 
-
+then: 
 
 ```bash
 $ python
 >>> import classy_sz
 ```
 
-Now, for this installation to work next time. You need to save the following environment variables and source the environment file. 
+Now, for this installation to work next time, we should export the PATH_TO_CLASS_SZ_DATA in our socfc environment file. 
 
 First retrieve the environment variables: 
 
@@ -129,32 +104,24 @@ It should print something like:
 /path/to/class_sz/class_sz_data_directory
 ```
 
-also the PYTHONPATH:
-
-```bash
-echo $PYTHONPATH
 ```
 
-It should print something like:
+Save the printed path and put the following the environment file (e.g., create a file called .bash_socfc and paste the following in it):
 
 ```bash
-/path/to/class_sz/class-sz/python/classy_szfast:
-```
-
-Save the printed path and put the following the environment file (e.g., create a file called .class_sz_env.sh and paste the following in it):
-
-```bash
-export PATH_TO_CLASS_SZ_DATA=/path/to/class_sz/class_sz_data_directory
-export PYTHONPATH=/path/to/class_sz/class-sz/python/classy_szfast:
+export PATH_TO_CLASS_SZ_DATA=$GOTOSOCFC/class_sz_data_directory
 ```
 
 Of course, you need to replace `/path/to/..` with the actual path. 
 
-Then, next time you want to work with class_sz, just source the environment file before running python:
+For instance, a .bash_socfc file could be:
 
 ```bash
-source .class_sz_env.sh
-```
+source /home/bb667/rds/bb667/cluster_counts/SOCFC/SOCFC_env/bin/activate
+export PATH_TO_CLASS_SZ_DATA=/home/bb667/rds/bb667/cluster_counts/SOCFC/class_sz_data_directory
+cd $GOTOSOCFC
+``` 
+
 
 ## Jupyter kernel
 
