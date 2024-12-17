@@ -175,8 +175,15 @@ For instance, a .bash_socfc file could be:
 source /home/bb667/rds/bb667/cluster_counts/SOCFC/SOCFC_env/bin/activate
 export PATH_TO_CLASS_SZ_DATA=/home/bb667/rds/bb667/cluster_counts/SOCFC/class_sz_data_directory
 cd $GOTOSOCFC
-``` 
+```
 
+## nemo 
+
+We have our own fork with branch dev_cfc based on dev. 
+
+## nemo-sim-kit
+
+We have our own fork with branch ... based on main. 
 
 ## Running calculations
 
