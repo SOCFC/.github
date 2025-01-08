@@ -190,3 +190,8 @@ We have our own fork with branch ... based on main.
 Activate the SOCFC environement (e.g., source .bash_socfc). Launch jupyterlab. 
 
 Then navigate to the sz-cfc directory and open the notebook class_sz.ipynb to try a class_sz calculation. 
+
+
+
+
+
