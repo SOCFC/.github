@@ -192,6 +192,18 @@ Activate the SOCFC environement (e.g., source .bash_socfc). Launch jupyterlab.
 Then navigate to the sz-cfc directory and open the notebook class_sz.ipynb to try a class_sz calculation. 
 
 
+## Transferring
 
+From nersc to csd3:
+
+```
+scp \
+> /pscratch/sd/a/anicola/SOCFC/maps/simMap_dT_039GHz_catalogue_so_1e14_Mlim4p7e14_Beam_039GHz_fwhm_05p1arcmin_pixwin_0.fits \
+> /pscratch/sd/a/anicola/SOCFC/maps/simMap_dT_093GHz_catalogue_so_1e14_Mlim4p7e14_Beam_093GHz_fwhm_02p2arcmin_pixwin_0.fits \
+> /pscratch/sd/a/anicola/SOCFC/maps/simMap_dT_145GHz_catalogue_so_1e14_Mlim4p7e14_Beam_145GHz_fwhm_01p4arcmin_pixwin_0.fits \
+> /pscratch/sd/a/anicola/SOCFC/maps/simMap_dT_225GHz_catalogue_so_1e14_Mlim4p7e14_Beam_225GHz_fwhm_01p0arcmin_pixwin_0.fits \
+> /pscratch/sd/a/anicola/SOCFC/maps/simMap_dT_278GHz_catalogue_so_1e14_Mlim4p7e14_Beam_278GHz_fwhm_00p9arcmin_pixwin_0.fits \
+> bb667@login-cpu.hpc.cam.ac.uk:/rds/project/rds-YVo7YUJF2mk/so-cfc/freq_maps/
+```
 
 
